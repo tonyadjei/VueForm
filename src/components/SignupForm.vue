@@ -6,7 +6,7 @@
       <!-- v-model directive uses two way binding: that is to say, it binds input from the from to the linked component variable, and also if we change the component variable ourselves, like say inside a method, it also binds it to the input in the form -->
 
       <label>Password</label>
-      <input type="password" required v-model="password">
+      <input @keyup="handleSubmit" type="password" required v-model="password">
       <div v-if="passwordError" class="error"> {{ passwordError }}</div>
 
       <label>Role:</label>
@@ -110,7 +110,7 @@ label{
 input, select{
     display: block;
     padding: 10px 6px; /* how far the content should be from its borders */
-    width: 100%;
+    width: 100%;  /* this sets the width to the width length of its containing parent element*/
     box-sizing: border-box;
     border: none;
     border-bottom: 1px solid #ddd;
@@ -133,7 +133,7 @@ input[type="checkbox"]{
     letter-spacing: 1px;
     font-weight: bold;
     color: #777;
-    cursor: pointer;
+    cursor: pointer; /* if you want to indicate that an element is clickable, you can set the cursor to pointer. */
 }
 button{
     background: #0b6dff;
@@ -149,7 +149,7 @@ button{
 .error{
     color: #ff0062;
     margin-top: 10px;
-    font-size: 0.8em;
+    font-size: 0.8em; /* this is relative to its parent's font-size: rem, on the other hand, is relative to the root font-size(which in most browsers is 16px be default) */
     font-weight: bold;
 }
 
